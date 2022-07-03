@@ -17,13 +17,22 @@ function MyCart(props) {
 
   let removefromCart = (cId)=>{
     decrease()
-     let cart = product.filter((item)=>{
-      return item.id != cId
+    // get the clicked item
+    let Clickeditem = product.filter((item)=>{
+      return item.id == cId
     })
-    cartItems=cart
-    itemToCart()
+    //check the quantity of item
+    if(Clickeditem[0].quantity == 1){
+      let cart = product.filter((item)=>{
+        return item.id != cId
+      })
+      cartItems = cart
+    }
+    else{
+      cartItems = product.map(item=> item.id == cId ? {...item, quantity: item.quantity -1}: item)
+    }
     
-  
+    itemToCart()
   }
   return (
     <>
