@@ -42,10 +42,24 @@ function Products(props) {
   }
   let addToCart = (cId)=>{
     increase()
-    let cart = product.filter((item)=>{
+    //Get the clicked item
+    let cart = product.find((item)=>{
       return item.id == cId
     })
-    cartItems.push(cart)
+
+    //check if item in cart
+    let inCart = cartItems.find((item)=>{
+      return (item.id == cId? true : false)
+    })
+
+    if(inCart){
+      cartItems = cartItems.map(item=> item.id ==cId ? {...item, quantity: item.quantity +1}: item)
+    }
+    else{
+      //Add the clicked item to the cart array
+      cartItems.push({...cart,quantity: 1})
+    }
+    //Update the redux cart with cart items
     itemToCart()
     console.log(cartItems)
   }
