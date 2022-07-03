@@ -8,6 +8,7 @@ import React from 'react'
 export default function MySlider() {
   return (
     <Carousel>
+      
         <Carousel.Item>
           <img
             className="d-block w-100 slide-img"
@@ -19,6 +20,19 @@ export default function MySlider() {
             <p>SHOP NOW</p>
           </Carousel.Caption>
         </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+            className="d-block w-100 slide-img"
+            src="https://cdn.shopify.com/s/files/1/0233/5133/files/3TheHorse_V1_FINAL_1536x.jpg?v=1653370239"
+            alt="Second slide"
+          />
+          <Carousel.Caption>
+            <h3>READY FOR THE NEW SEASON?</h3>
+            <p>SHOP NOW</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
       </Carousel>
 
     
