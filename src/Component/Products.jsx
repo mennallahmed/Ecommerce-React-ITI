@@ -61,7 +61,6 @@ function Products(props) {
     }
     //Update the redux cart with cart items
     itemToCart()
-    console.log(cartItems)
   }
 
   useEffect(()=>{

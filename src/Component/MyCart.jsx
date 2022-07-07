@@ -9,11 +9,11 @@ let cartItems = [];
 function MyCart(props) {
   let {cartList,decrease,itemToCart} = props
   let [product,setProducts] = useState([])
-  console.log("cartlist",cartList)
   
   useEffect(()=>{
     setProducts(cartList)
-  },[props])
+   
+  },[props,cartList,cartItems])
 
   let removefromCart = (cId)=>{
     decrease()
@@ -31,30 +31,33 @@ function MyCart(props) {
     else{
       cartItems = product.map(item=> item.id == cId ? {...item, quantity: item.quantity -1}: item)
     }
-    
     itemToCart()
+    
   }
   return (
     <>
-      <h4 style={{margin:"5%"}}>YOUR BAG</h4>
-      <div className='my-container'>
+      <h3 style={{margin:"5%",textAlign:"left"}}>YOUR BAG</h3>
+      <div className='my-container cart-div' >
       {product.map((item)=>{
       return (
-        <Card key={item.id} style={{ width: '18rem', margin:"2%",color:"black"}}>
-          <NavLink className='product-a' to={`/products/${item.id}`}>
-          <Card.Img variant="top" src={`${item.img}`} />
-          </NavLink>
-          <Card.Body>
-          <Card.Text>{item.desc}</Card.Text>
-          <Card.Text>{item.price}</Card.Text>
-          <Card.Text>{item.quantity}</Card.Text>
-          <CartX className='cart-x' onClick={()=>{removefromCart(item.id)}}></CartX>
-          
-          </Card.Body>   
+        <Card className='main-cart' key={item.id} style={{ margin:"2%",color:"black"}}>
+          <div className='my-container cart-div' style={{flexDirection:"row"}}>
+            <NavLink className='product-a' to={`/products/${item.id}`}>
+              <Card.Img variant="top" src={`${item.img}`} />
+            </NavLink>
+            <Card.Body className='cart-body'>
+              <Card.Text>{item.desc}</Card.Text>
+              <Card.Text>{item.price}</Card.Text>
+              <Card.Text>{item.quantity}</Card.Text>
+              <CartX className='cart-x' onClick={()=>{removefromCart(item.id)}}></CartX>
+            </Card.Body>  
+          </div> 
         </Card>
       )})}
       </div>  
-      <button className='check-btn'>Check Out</button>
+      <NavLink className="nav-a" to="/checkout">
+        <button className='check-btn'>Check Out</button>
+      </NavLink>
     </>
   )
 }

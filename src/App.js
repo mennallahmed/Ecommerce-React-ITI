@@ -11,8 +11,8 @@ import Footer from './Component/Footer';
 import MyNavbar from './Component/MyNavbar';
 import MySlider from './Component/MySlider';
 import Newsletter from './Component/Newsletter';
-import Counter from './Component/Counter';
 import MyCart from './Component/MyCart';
+import Checkout from './Component/Checkout';
 
 
 
@@ -25,9 +25,10 @@ function App() {
       <Routes>
         <Route path='/' element={<> <MySlider/> <Categories/> <Newsletter/> </>}/>
         <Route path='/home' element={<><MySlider/> <Categories/> <Newsletter/> </>}/>
-        <Route path='/about' element={<><About/> <Counter/></> }/>
+        <Route path='/about' element={<><About/></> }/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/mycart' element={<MyCart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='/products/:id' element={<ProductInfo/>}/>
       </Routes>

@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 function MyNavbar(props) {
   let {cartCount} = props
-  console.log("cart",props)
   return (
     <Navbar  sticky="top" expand="lg" style={{backgroundColor:"white"}}>
     <Container>

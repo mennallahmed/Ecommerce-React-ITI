@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import productActions from '../Redux/actions/productActions'
-import Counter from "./Counter"
 
 let cartItems
 function ProductInfo(props) {
